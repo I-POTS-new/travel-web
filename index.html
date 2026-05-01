@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>连云港 + 淮安 · 两日游图文攻略</title>
+<meta name="description" content="2026.5.3–5.4 连云港淮安两日游，可编辑的方案 · 清单 · 地图">
+<meta name="theme-color" content="#1B5E57">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  /* 首次加载前就设置 data-view，避免样式闪烁 */
+  (function() {
+    var view = localStorage.getItem('jiangsu-view') || 'mobile';
+    document.documentElement.setAttribute('data-view', view);
+    var dark = localStorage.getItem('jiangsu-dark') === '1';
+    if (dark) document.documentElement.classList.add('dark');
+  })();
+</script>
+</head>
+<body class="pb-20">
+
+<nav class="fixed top-0 inset-x-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-2.5">
+      <span class="text-xl" style="filter: drop-shadow(0 1px 2px rgba(210,105,30,.3));">🏯</span>
+      <span class="font-bold text-slate-800 dark:text-slate-100 truncate tracking-wide">连云港 · 淮安 两日游</span>
+    </div>
+    <div class="hidden md:flex items-center gap-6 text-sm text-slate-600 dark:text-slate-300">
+      <a href="#overview" class="nav-link">速览</a>
+      <a href="#timeline" class="nav-link">行程</a>
+      <a href="#todo" class="nav-link">清单</a>
+      <a href="#map-section" class="nav-link">地图</a>
+      <a href="#food" class="nav-link">美食</a>
+      <a href="#tips" class="nav-link">贴士</a>
+    </div>
+    <div class="flex items-center gap-1">
+      <button id="viewBtn" class="w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 flex items-center justify-center transition-colors" title="切换视图">
+        <i data-lucide="smartphone" class="w-4 h-4"></i>
+      </button>
+      <button id="darkBtn" class="w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 flex items-center justify-center transition-colors" title="夜间模式">
+        <i data-lucide="moon" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="relative h-[440px] md:h-[560px] overflow-hidden mt-14">
+  <img src="images/cover.png" alt="封面" class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 hero-grad"></div>
+  <div class="relative max-w-6xl mx-auto px-6 h-full flex flex-col justify-center text-white">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="hero-chip text-sm flex items-center gap-2">🌸 五一假期 · 2026</span>
+      <span class="hero-chip text-sm flex items-center gap-2">✨ 两城两日 · 可编辑</span>
+    </div>
+    <h1 class="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg" style="font-family: 'Noto Serif SC', 'PingFang SC', serif;">
+      连云港 <span class="text-amber-200 mx-2">·</span> 淮安
+    </h1>
+    <p class="text-lg md:text-2xl mb-6 opacity-95 drop-shadow max-w-2xl" style="font-weight: 300;">
+      山海与运河之间的慢旅行<br class="md:hidden">
+      <span class="text-amber-100 font-medium">行程 · 清单 · 地图 全部可以编辑</span>
+    </p>
+    <div class="flex flex-wrap gap-3 text-sm mb-6">
+      <div class="hero-chip flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> 5.3 – 5.4</div>
+      <div class="hero-chip flex items-center gap-2"><i data-lucide="train-front" class="w-4 h-4"></i> 高铁 25 – 60 分钟</div>
+      <div class="hero-chip flex items-center gap-2"><i data-lucide="wallet" class="w-4 h-4"></i> 人均 ¥1,200</div>
+    </div>
+    <div class="flex gap-3">
+      <a href="#timeline" class="btn" style="background:#fff;color:var(--brand);box-shadow: 0 8px 20px rgba(0,0,0,.25);"><i data-lucide="play" class="w-4 h-4"></i> 开始浏览</a>
+      <a href="#map-section" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.5);backdrop-filter:blur(10px)"><i data-lucide="map" class="w-4 h-4"></i> 看看地图</a>
+    </div>
+  </div>
+  <div class="hero-wave"></div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 md:px-6 py-10 space-y-16">
+
+<section id="overview">
+  <h2 class="text-3xl md:text-4xl font-bold mb-2 sec-title">30 秒速览</h2>
+  <p class="text-slate-500 dark:text-slate-400 mb-8 ml-5 italic">一眼看懂 5 个方案，对号入座选你的那杯茶 ☕</p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="card p-6">
+      <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+        <i data-lucide="route" class="w-5 h-5 text-[color:var(--brand-2)]"></i>五套方案一览
+      </h3>
+      <div class="overflow-x-auto">
+      <table class="tbl">
+        <thead><tr><th>方案</th><th>5.3 连云港</th><th>5.4 淮安</th><th>强度</th></tr></thead>
+        <tbody>
+          <tr><td>🏆 <b>A 山海萌宠</b></td><td>花果山 + 连岛</td><td>古镇 + 三岛</td><td>⭐⭐⭐</td></tr>
+          <tr><td>🏆 <b>B 轻松海景</b></td><td>在中路 + 连岛</td><td>龙宫海洋世界</td><td>⭐⭐</td></tr>
+          <tr><td>📋 C 西游深度</td><td>花果山一整天</td><td>龙宫一整天</td><td>⭐⭐⭐</td></tr>
+          <tr><td>📋 D 古城运河</td><td>花果山 + 连岛</td><td>故里 + 夜游船</td><td>⭐⭐</td></tr>
+          <tr><td>📋 E 原计划修正</td><td>花果山 + 连岛</td><td>龙宫 + 肥猫岛</td><td>⭐⭐⭐⭐</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <div class="card p-6">
+      <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-5 h-5 text-[color:var(--accent)]"></i>对号入座
+      </h3>
+      <ul class="space-y-3">
+        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-[color:var(--brand-soft)] transition"><span class="tag tag-blue">第一次来</span> 啥都想看一眼 → <b class="text-[color:var(--brand)] text-lg">A</b></li>
+        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-[color:var(--brand-soft)] transition"><span class="tag tag-green">不爱爬山</span> 想出好看照片 → <b class="text-[color:var(--brand)] text-lg">B</b></li>
+        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-[color:var(--brand-soft)] transition"><span class="tag tag-orange">带小朋友</span> 爱动物海洋馆 → <b class="text-[color:var(--brand)] text-lg">C</b></li>
+        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-[color:var(--brand-soft)] transition"><span class="tag tag-purple">爱历史文化</span> 想看运河夜景 → <b class="text-[color:var(--brand)] text-lg">D</b></li>
+        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-[color:var(--brand-soft)] transition"><span class="tag tag-red">坚持原计划</span> 可接受紧凑 → <b class="text-[color:var(--brand)] text-lg">E</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 行程时间轴（可编辑） ======= -->
+<section id="timeline">
+  <div class="section-header">
+    <div class="section-header-top">
+      <h2 class="text-3xl md:text-4xl font-bold sec-title">行程时间轴</h2>
+      <div class="section-actions">
+        <button id="timelineResetBtn" class="section-action-btn" title="恢复默认行程"><i data-lucide="rotate-ccw" class="w-4 h-4"></i><span>重置</span></button>
+      </div>
+    </div>
+    <p class="text-slate-500 dark:text-slate-400 mt-2 ml-5 italic">点任一时间点可直接编辑 · 底部「+新增」添加 📝</p>
+  </div>
+  <div class="flex flex-wrap gap-2 mb-6 mt-6" id="planTabs">
+    <button class="tab-btn active px-5 py-2.5 rounded-xl text-sm font-medium" data-plan="A">🏆 A · 山海萌宠</button>
+    <button class="tab-btn px-5 py-2.5 rounded-xl text-sm font-medium" data-plan="B">🏆 B · 轻松海景</button>
+    <button class="tab-btn px-5 py-2.5 rounded-xl text-sm font-medium" data-plan="C">📋 C · 西游深度</button>
+    <button class="tab-btn px-5 py-2.5 rounded-xl text-sm font-medium" data-plan="D">📋 D · 古城运河</button>
+    <button class="tab-btn px-5 py-2.5 rounded-xl text-sm font-medium" data-plan="E">📋 E · 原计划修正</button>
+  </div>
+  <div id="planContent" class="grid md:grid-cols-2 gap-6"></div>
+</section>
+
+<!-- ======= TodoList（多分组 + 编辑） ======= -->
+<section id="todo">
+  <div class="section-header">
+    <div class="section-header-top">
+      <h2 class="text-3xl md:text-4xl font-bold sec-title">分组清单</h2>
+      <div class="section-actions">
+        <button id="addGroupBtn" class="section-action-btn" title="新增分组"><i data-lucide="folder-plus" class="w-4 h-4"></i><span>新分组</span></button>
+        <button id="resetTodoBtn" class="section-action-btn" title="重置清单"><i data-lucide="rotate-ccw" class="w-4 h-4"></i><span>重置</span></button>
+      </div>
+    </div>
+    <p class="text-slate-500 dark:text-slate-400 mt-2 ml-5 italic">出发前 · 旅途中 · 回程后 ✅</p>
+  </div>
+
+  <div id="todoGroupTabs" class="flex flex-wrap gap-2 mb-4 mt-6"></div>
+
+  <div class="flex items-center justify-between text-sm mb-3">
+    <p class="text-slate-500 dark:text-slate-400">📊 当前分组：<b id="groupProgress" class="text-[color:var(--brand)]">0/0</b>　·　总进度：<b id="totalProgress" class="text-[color:var(--accent)]">0%</b></p>
+    <button id="addTodoBtn" class="btn btn-primary text-sm"><i data-lucide="plus" class="w-4 h-4"></i>新增一项</button>
+  </div>
+
+  <div class="card p-3 md:p-5">
+    <ul id="todoList" class="space-y-1"></ul>
+  </div>
+</section>
+
+<!-- ======= 地图（可编辑 + 路线） ======= -->
+<section id="map-section">
+  <div class="section-header">
+    <div class="section-header-top">
+      <h2 class="text-3xl md:text-4xl font-bold sec-title">位置 & 路线</h2>
+      <div class="section-actions">
+        <button id="mapAddBtn" class="section-action-btn primary" title="添加点位"><i data-lucide="map-pin-plus" class="w-4 h-4"></i><span>添加点位</span></button>
+        <button id="mapGroupBtn" class="section-action-btn" title="管理分组"><i data-lucide="folder-tree" class="w-4 h-4"></i><span>分组</span></button>
+        <button id="mapResetBtn" class="section-action-btn" title="重置地图"><i data-lucide="rotate-ccw" class="w-4 h-4"></i><span>重置</span></button>
+      </div>
+    </div>
+    <p class="text-slate-500 dark:text-slate-400 mt-2 ml-5 italic">点地图加点位 · 选起终点画路线 · 点标记可跳高德 🗺️</p>
+  </div>
+
+  <!-- ▶ 分组筛选工具栏 -->
+  <div class="map-toolbar">
+    <div class="map-toolbar-label">
+      <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+      <span>分组筛选</span>
+    </div>
+    <div id="mapGroupFilter" class="map-toolbar-chips"></div>
+  </div>
+
+  <!-- ▶ 路线规划卡片 -->
+  <div class="card route-panel p-4 md:p-5 mb-4" id="routePanel">
+    <div class="route-panel-head">
+      <div class="route-panel-title">
+        <span class="route-panel-icon"><i data-lucide="navigation-2" class="w-4 h-4"></i></span>
+        <span>路线规划</span>
+      </div>
+      <div class="flex items-center gap-1.5 text-xs text-slate-500" id="routeMode">
+        <span class="route-mode-chip active" data-mode="driving">🚗 驾车</span>
+        <span class="route-mode-chip" data-mode="walking">🚶 步行</span>
+      </div>
+    </div>
+
+    <!-- 卡片式选择器 -->
+    <div class="route-picker">
+      <button class="route-endpoint" id="routeFromBtn" data-endpoint="from">
+        <div class="route-endpoint-badge" style="background:#16A34A">A</div>
+        <div class="route-endpoint-content">
+          <div class="route-endpoint-label">起点</div>
+          <div class="route-endpoint-name" id="routeFromName">点击选择起点…</div>
+        </div>
+        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+      </button>
+
+      <button class="route-swap-btn" id="routeSwapBtn" title="交换起终点">
+        <i data-lucide="arrow-down-up" class="w-4 h-4"></i>
+      </button>
+
+      <button class="route-endpoint" id="routeToBtn" data-endpoint="to">
+        <div class="route-endpoint-badge" style="background:#DC2626">B</div>
+        <div class="route-endpoint-content">
+          <div class="route-endpoint-label">终点</div>
+          <div class="route-endpoint-name" id="routeToName">点击选择终点…</div>
+        </div>
+        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+      </button>
+    </div>
+
+    <div class="flex gap-2 mt-3">
+      <button id="routeGoBtn" class="btn btn-primary text-sm flex-1"><i data-lucide="route" class="w-4 h-4"></i>开始规划</button>
+      <button id="routeClearBtn" class="btn btn-outline text-sm" title="清除路线"><i data-lucide="x" class="w-4 h-4"></i>清除</button>
+    </div>
+
+    <div id="routeInfo" class="mt-3 text-sm text-slate-600 dark:text-slate-300 hidden"></div>
+  </div>
+
+  <!-- ▶ 地名搜索框 -->
+  <div class="map-search">
+    <div class="map-search-box">
+      <i data-lucide="search" class="w-4 h-4 text-slate-400"></i>
+      <input id="mapSearchInput" placeholder="搜索地名、景点、地址…" autocomplete="off">
+      <button id="mapSearchClear" class="map-search-clear" title="清空" style="display:none">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+    <div id="mapSearchResults" class="map-search-results"></div>
+  </div>
+
+  <!-- ▶ 地图容器 -->
+  <div class="map-wrap">
+    <!-- 地图顶部信息条（悬浮） -->
+    <div class="map-info-bar" id="mapInfoBar">
+      <span class="map-info-dot"></span>
+      <span id="mapInfoText">0 个点位</span>
+    </div>
+    <div id="map"></div>
+  </div>
+  <p class="map-hint"><i data-lucide="info" class="w-3 h-3"></i>搜索地名快速定位 · 点地图添加点位 · 点标记可编辑 / 设为起终点</p>
+
+  <!-- ▶ 按分组折叠的点位列表 -->
+  <div class="place-list-head">
+    <span class="place-list-head-title">
+      <i data-lucide="list" class="w-4 h-4"></i>
+      <span>所有点位</span>
+    </span>
+    <span class="place-list-head-hint">点击分组可展开 / 收起</span>
+  </div>
+  <div id="placeList" class="mt-3 space-y-3"></div>
+</section>
+
+<!-- ======= 美食 ======= -->
+<section id="food">
+  <h2 class="text-3xl md:text-4xl font-bold mb-2 sec-title">美食专题</h2>
+  <p class="text-slate-500 dark:text-slate-400 mb-8 ml-5 italic">点店名跳大众点评 🍜</p>
+  <div class="flex gap-2 mb-6">
+    <button class="food-tab tab-btn active px-5 py-2.5 rounded-xl text-sm" data-food="lyg">🦀 连云港海鲜</button>
+    <button class="food-tab tab-btn px-5 py-2.5 rounded-xl text-sm" data-food="ha">🥟 淮安淮扬菜</button>
+  </div>
+  <div id="foodPane-lyg" class="food-pane">
+    <div class="grid md:grid-cols-2 gap-6 items-start">
+      <div class="img-item rounded-xl overflow-hidden max-h-80"><img src="images/seafood.png" alt="连云港海鲜"></div>
+      <div>
+        <h3 class="font-bold text-lg mb-3">推荐餐厅</h3>
+        <div class="space-y-2 mb-4" id="restaurantsLyg"></div>
+        <h3 class="font-bold text-lg mb-3">必吃清单</h3>
+        <div class="flex flex-wrap gap-2" id="mustEatLyg"></div>
+      </div>
+    </div>
+    <div class="quote mt-5"><b>避坑口诀</b>：先问单价再点菜；现抓现称看一下秤；不点"时价"那一栏；两人别超过 5 只大货，其余拿小吃凑份。</div>
+  </div>
+  <div id="foodPane-ha" class="food-pane" style="display:none">
+    <div class="grid md:grid-cols-2 gap-6 items-start">
+      <div class="img-item rounded-xl overflow-hidden max-h-80"><img src="images/tangbao.png" alt="文楼汤包"></div>
+      <div>
+        <h3 class="font-bold text-lg mb-3">推荐餐厅</h3>
+        <div class="space-y-2 mb-4" id="restaurantsHa"></div>
+        <h3 class="font-bold text-lg mb-3">必吃清单</h3>
+        <div class="flex flex-wrap gap-2" id="mustEatHa"></div>
+      </div>
+    </div>
+    <div class="quote mt-5"><b>早茶建议</b>：5.4 早上 8:00 去文楼，点汤包 + 蒲菜烧麦 + 茶馓 + 豆浆。</div>
+  </div>
+</section>
+
+<section id="photo">
+  <h2 class="text-3xl md:text-4xl font-bold mb-2 sec-title">打卡机位</h2>
+  <p class="text-slate-500 dark:text-slate-400 mb-8 ml-5 italic">点图片可放大查看 📸</p>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+    <div class="img-item aspect-[4/3]"><img src="images/huaguoshan.png" alt="花果山"></div>
+    <div class="img-item aspect-[4/3]"><img src="images/liandao.png" alt="连岛"></div>
+    <div class="img-item aspect-[4/3]"><img src="images/zaizhonglu.png" alt="在中路"></div>
+    <div class="img-item aspect-[4/3]"><img src="images/hexia.png" alt="河下古镇"></div>
+    <div class="img-item aspect-[4/3]"><img src="images/feimao.png" alt="肥猫岛"></div>
+    <div class="img-item aspect-[4/3]"><img src="images/longgong.png" alt="龙宫海底隧道"></div>
+    <div class="img-item aspect-[4/3]"><img src="images/baijing.png" alt="白鲸表演"></div>
+    <div class="img-item aspect-[4/3]"><img src="images/yunhe.png" alt="里运河夜景"></div>
+  </div>
+</section>
+
+<section id="tips">
+  <h2 class="text-3xl md:text-4xl font-bold mb-2 sec-title">实用贴士</h2>
+  <p class="text-slate-500 dark:text-slate-400 mb-8 ml-5 italic">出行前看一眼，少走弯路 💡</p>
+  <div class="grid md:grid-cols-3 gap-5">
+    <div class="card p-6">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--brand-soft);">
+          <i data-lucide="cloud-rain" class="w-5 h-5 text-[color:var(--brand)]"></i>
+        </div>
+        <h3 class="font-bold text-lg">雨天 Plan B</h3>
+      </div>
+      <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-300">
+        <li>📍 连云港：海底世界 + 连云老街</li>
+        <li>📍 淮安：淮安府署 + 周恩来纪念馆</li>
+        <li>☂️ 折叠伞 + 一次性雨衣 + 防滑鞋</li>
+      </ul>
+    </div>
+    <div class="card p-6">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--accent-soft);">
+          <i data-lucide="shirt" class="w-5 h-5 text-[color:var(--accent)]"></i>
+        </div>
+        <h3 class="font-bold text-lg">天气与穿搭</h3>
+      </div>
+      <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-300">
+        <li>🌡️ 18–26℃，昼夜温差大</li>
+        <li>🌊 海边风大，薄外套必备</li>
+        <li>☀️ 遮阳帽 + SPF30+ 防晒霜</li>
+      </ul>
+    </div>
+    <div class="card p-6">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--brand-soft);">
+          <i data-lucide="wallet" class="w-5 h-5 text-[color:var(--brand)]"></i>
+        </div>
+        <h3 class="font-bold text-lg">费用预估（人均）</h3>
+      </div>
+      <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-300">
+        <li>🎯 方案 A：约 <b class="text-[color:var(--accent)]">¥1,200</b></li>
+        <li>🎯 方案 B：约 <b class="text-[color:var(--accent)]">¥1,160</b></li>
+        <li>🚄 高铁 ¥70–110</li>
+      </ul>
+    </div>
+  </div>
+  <div class="mt-8 card p-6">
+    <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+      <i data-lucide="link-2" class="w-5 h-5 text-[color:var(--brand-2)]"></i>快速跳转
+    </h3>
+    <div class="flex flex-wrap gap-2" id="quickLinks"></div>
+  </div>
+</section>
+
+<section id="closing">
+  <div class="card p-8 md:p-10" style="background: linear-gradient(135deg, var(--brand-soft) 0%, var(--accent-soft) 100%); border: none;">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="text-4xl">🐱🦀🚄</span>
+      <h2 class="text-2xl md:text-3xl font-bold">最后几句碎碎念</h2>
+    </div>
+    <div class="space-y-3 text-slate-700 dark:text-slate-200 leading-relaxed">
+      <p>5.3 晚的高铁一定要提前订。五一后半程跨城也很拥挤。</p>
+      <p>肥猫岛比想的好太多，三岛奇遇记的艺术设计感很强。</p>
+      <p>淮扬菜建议早茶加正餐两顿都安排上。文楼汤包和软兜长鱼错过真的会想。</p>
+      <p class="font-bold text-[color:var(--brand)] text-xl mt-4">祝你两天玩得开心 ✨</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<button id="back-top" aria-label="返回顶部"><i data-lucide="arrow-up" class="w-5 h-5"></i></button>
+
+<!-- ======= 移动端底部导航 ======= -->
+<nav class="mobile-nav">
+  <a href="#timeline" class="mobile-nav-item" data-nav="timeline">
+    <i data-lucide="calendar-days"></i><span>行程</span>
+  </a>
+  <a href="#todo" class="mobile-nav-item" data-nav="todo">
+    <i data-lucide="list-checks"></i><span>清单</span>
+  </a>
+  <a href="#map-section" class="mobile-nav-item" data-nav="map-section">
+    <i data-lucide="map"></i><span>地图</span>
+  </a>
+  <a href="#food" class="mobile-nav-item" data-nav="food">
+    <i data-lucide="utensils"></i><span>美食</span>
+  </a>
+  <a href="#tips" class="mobile-nav-item" data-nav="tips">
+    <i data-lucide="lightbulb"></i><span>贴士</span>
+  </a>
+</nav>
+
+<!-- ======= 上下文感知的 FAB 按钮 ======= -->
+<button id="contextFab" class="fab" title="快捷操作" style="display:none">
+  <i data-lucide="plus"></i>
+</button>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">×</span>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- ======= 通用模态框 ======= -->
+<div id="modal" class="modal-backdrop hidden">
+  <div class="modal-box">
+    <div class="flex items-center justify-between mb-4 pb-3 border-b border-[color:var(--line)]">
+      <h3 id="modalTitle" class="font-bold text-lg flex items-center gap-2"></h3>
+      <button id="modalClose" class="icon-btn" style="width:32px;height:32px;">×</button>
+    </div>
+    <div id="modalBody"></div>
+    <div class="flex justify-end gap-2 mt-5 pt-4 border-t border-[color:var(--line)]">
+      <button id="modalCancel" class="btn btn-outline text-sm">取消</button>
+      <button id="modalConfirm" class="btn btn-primary text-sm">确定</button>
+    </div>
+  </div>
+</div>
+
+<footer class="max-w-6xl mx-auto px-4 md:px-6 pt-10 pb-6 text-center text-sm">
+  <div class="inline-flex items-center gap-3 px-5 py-3 rounded-full" style="background:var(--card);border:1px solid var(--line);">
+    <span class="text-[color:var(--brand)]">🏯</span>
+    <span class="text-slate-500">数据保存在浏览器本地 · 不同设备独立</span>
+    <span class="text-[color:var(--line)]">|</span>
+    <span class="text-slate-500">地图：高德 · 路线：OSRM</span>
+  </div>
+</footer>
+
+<script src="assets/store.js"></script>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
