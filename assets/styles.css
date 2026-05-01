@@ -67,7 +67,11 @@ html.dark {
 
 /* ============ 基础 ============ */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+html {
+  scroll-behavior: smooth; scroll-padding-top: 76px;
+  /* 让 html 底部颜色与移动端导航栏一致，避免 iOS safe-area 露出系统色造成"间隙" */
+  background: var(--card);
+}
 body {
   font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--grad-paper);
@@ -1449,7 +1453,10 @@ button, a, .icon-btn, .tab-btn, .group-tab, .filter-chip, .btn, .todo-checkbox, 
 
 /* ============ iOS 安全区域 ============ */
 @supports (padding: env(safe-area-inset-bottom)) {
-  body { padding-bottom: calc(20px + env(safe-area-inset-bottom)); }
+  /* 桌面视图：只留小量底部 padding */
+  html[data-view="desktop"] body { padding-bottom: calc(20px + env(safe-area-inset-bottom)) !important; }
+  /* 移动视图：为底部导航栏预留 72px + safe-area */
+  html[data-view="mobile"] body { padding-bottom: calc(72px + env(safe-area-inset-bottom)) !important; }
 }
 
 /* ============ 打印 ============ */
@@ -2087,6 +2094,89 @@ html[data-view="mobile"] .map-info-bar {
   font-size: 11px;
 }
 html[data-view="mobile"] .place-group-header { padding: 12px 14px 12px 18px; }
+
+/* ============================================================
+   ▼▼▼ Todo 进度条（自适应不换行）▼▼▼
+   ============================================================ */
+.todo-progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, var(--card) 0%, var(--card-soft) 100%);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+.todo-progress-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  margin: 0;
+  white-space: nowrap;
+}
+.todo-progress-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.todo-progress-item b {
+  font-weight: 700;
+  font-size: 13.5px;
+}
+.todo-progress-emoji {
+  font-size: 14px;
+  line-height: 1;
+}
+.todo-progress-sep {
+  color: var(--line);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.todo-add-btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* 极窄屏优化 —— 逐步隐藏次要文字，保证一行不换行 */
+@media (max-width: 480px) {
+  .todo-progress-bar { padding: 7px 10px; gap: 6px; }
+  .todo-progress-text { gap: 6px; font-size: 12.5px; }
+  /* 隐藏"当前分组 / 总进度"描述文字，只留 emoji + 数字 */
+  .todo-progress-item { gap: 3px; }
+}
+
+@media (max-width: 380px) {
+  /* 隐藏分隔符和"新增一项"文字，只剩 + 图标按钮 */
+  .todo-progress-sep { display: none; }
+  .todo-progress-item:nth-child(3) { gap: 2px; }
+  .todo-add-btn-label {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+  .todo-add-btn {
+    padding: 0 !important;
+    width: 38px; height: 38px;
+    justify-content: center;
+    min-width: 38px;
+  }
+}
+
+
+
 
 /* ============================================================
    ▼▼▼ 模块标题右侧操作按钮组（行程 / 清单 / 地图） ▼▼▼
