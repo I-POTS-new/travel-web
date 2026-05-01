@@ -71,6 +71,8 @@ html {
   scroll-behavior: smooth; scroll-padding-top: 76px;
   /* 让 html 底部颜色与移动端导航栏一致，避免 iOS safe-area 露出系统色造成"间隙" */
   background: var(--card);
+  /* 真正覆盖到屏幕物理底部 */
+  min-height: 100%;
 }
 body {
   font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -79,6 +81,9 @@ body {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  /* iOS 新视口单位：实际可见高度（避免地址栏折叠时留缝） */
+  min-height: 100dvh;
+  position: relative;
 }
 h1, h2, h3, h4 {
   font-family: 'Noto Serif SC', 'PingFang SC', 'Microsoft YaHei', serif;
@@ -95,6 +100,17 @@ body::before {
   background-image:
     radial-gradient(circle at 20% 20%, rgba(46, 150, 135, .04) 0%, transparent 40%),
     radial-gradient(circle at 80% 80%, rgba(210, 105, 30, .04) 0%, transparent 40%);
+}
+/* 底部兜底色块：吸附在屏幕最底端（含 safe-area），与导航栏同色，杜绝 iOS 任何情况下的底部缝隙 */
+html[data-view="mobile"] body::after {
+  content: '';
+  position: fixed;
+  left: 0; right: 0;
+  bottom: 0;
+  height: calc(72px + env(safe-area-inset-bottom, 0px));
+  background: var(--card);
+  z-index: 39;    /* 位于导航栏(z:40)之下，其他内容之上 */
+  pointer-events: none;
 }
 
 /* ============ Hero ============ */
@@ -1219,12 +1235,16 @@ html.dark .route-info-box {
 
   /* ======== 底部标签栏导航 ======== */
   .mobile-nav {
-    position: fixed; bottom: 0; left: 0; right: 0;
+    position: fixed;
+    left: 0; right: 0;
+    /* 让导航栏的底部超出屏幕物理底边一点点，彻底消除任何可能的亚像素缝隙 */
+    bottom: -1px;
     background: var(--card);
     border-top: 1px solid var(--line);
     box-shadow: 0 -4px 20px rgba(0,0,0,.08);
     z-index: 40;
-    padding: 6px 0 calc(6px + env(safe-area-inset-bottom, 0px));
+    /* 上 6px；下 = 6px + safe-area + 刚才的 -1px 补偿（再多 1px 防漏） */
+    padding: 6px 0 calc(7px + env(safe-area-inset-bottom, 0px));
     display: grid;
     grid-template-columns: repeat(5, 1fr);
   }
